@@ -17,7 +17,9 @@ public class UserController {
 
     private final UserService userService;
 
-    @Autowired
+ //опустила аннотацию, но г. Алишев и др говорят о необходимости
+ // явно указывать аннотацию, чтобы показать явное
+ //намерение др разработчикам
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -28,7 +30,7 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping(value ="/new")
+    @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
         return "new";
